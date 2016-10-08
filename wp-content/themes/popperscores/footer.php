@@ -17,7 +17,7 @@
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'popperscores' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'popperscores' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'popperscores' ), 'popperscores', '<a href="http://underscores.me/" rel="designer">Peter</a>' ); ?>
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'popperscores' ), 'popperscores', '<a href="http://lynda.com/mor10" rel="designer">Morten Rand-Hendriksen</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

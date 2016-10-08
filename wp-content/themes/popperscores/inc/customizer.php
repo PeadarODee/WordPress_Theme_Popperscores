@@ -21,6 +21,6 @@ add_action( 'customize_register', 'popperscores_customize_register' );
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function popperscores_customize_preview_js() {
-	wp_enqueue_script( 'popperscores_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+	wp_enqueue_script( 'popperscores_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
 }
 add_action( 'customize_preview_init', 'popperscores_customize_preview_js' );

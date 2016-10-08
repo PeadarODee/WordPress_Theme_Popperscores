@@ -44,7 +44,7 @@ function popperscores_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'popperscores' ),
+		'primary' => esc_html__( 'Primary Menu', 'popperscores' ),
 	) );
 
 	/*
@@ -59,13 +59,25 @@ function popperscores_setup() {
 		'caption',
 	) );
 
+	/*
+	 * Enable support for Post Formats.
+	 * See https://developer.wordpress.org/themes/functionality/post-formats/
+	 */
+	add_theme_support( 'post-formats', array(
+		'aside',
+		'image',
+		'video',
+		'quote',
+		'link',
+	) );
+
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'popperscores_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 }
-endif;
+endif; // popperscores_setup
 add_action( 'after_setup_theme', 'popperscores_setup' );
 
 /**
@@ -89,9 +101,9 @@ function popperscores_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'popperscores' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'popperscores' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
@@ -103,18 +115,13 @@ add_action( 'widgets_init', 'popperscores_widgets_init' );
  */
 function popperscores_scripts() {
 	wp_enqueue_style( 'popperscores-style', get_stylesheet_uri() );
-    
-    
-    // Add Google Fonts: Fira and Merriweather
-    //wp_enqueue_style( 'popperscores-google-fonts', 'https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700,700i|Merriweather:400,400i,700,700i');
-    
-    //Add google fonts from self hosted directory
-    wp_enqueue_style( 'popperscores-local-fonts', get_template_directory_uri() . '/fonts/custom-fonts.css');
-    
+	
+	// Add Google Fonts: Fira Sans and Merriweather
+	wp_enqueue_style( 'popperscores-local-fonts', get_template_directory_uri() . '/fonts/custom-fonts.css' );
+	
+	wp_enqueue_script( 'popperscores-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
-	wp_enqueue_script( 'popperscores-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'popperscores-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'popperscores-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
