@@ -123,7 +123,7 @@ function popperscores_scripts() {
     
     
     
-    wp_enqueue_script( 'popperscores-navigation', get_template_directory_uri() . '/js/navigation.js', array( 'jquery' ), '20120206', true );
+    wp_enqueue_script( 'popperscores-navigation', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20120206', true );
     wp_localize_script( 'popperscores-navigation', 'screenReaderText', array(
 		'expand'   => '<span class="screen-reader-text">' . __( 'expand child menu', 'popperscores' ) . '</span>',
 		'collapse' => '<span class="screen-reader-text">' . __( 'collapse child menu', 'popperscores' ) . '</span>',
