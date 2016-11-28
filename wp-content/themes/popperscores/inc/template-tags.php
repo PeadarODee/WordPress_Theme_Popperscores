@@ -188,3 +188,21 @@ function popperscores_validate_gravatar($id_or_email) {
 		return false;
 	}
 }
+
+/**
+ * Customise the excerpt read-more indicator
+ */
+function popperscores_excerpt_more( $more ) {
+    return " ...";
+}
+add_filter( 'excerpt_more', 'popperscores_excerpt_more' );
+
+
+
+
+
+
+
+
+
+
